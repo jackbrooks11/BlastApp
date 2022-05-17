@@ -1,0 +1,50 @@
+<form action="{{ url_for('retrieve_results') }}" method="GET" id="submitForm">
+  <textarea
+    class="form-control"
+    placeholder="Enter a DNA sequence in FASTA format"
+    rows="3"
+    name="sequence"
+    id="sequence"
+  ></textarea>
+  <button type="submit" class="btn btn-primary" id="submitButton">
+    Search
+  </button>
+  {% if form.sequence.errors %}
+  <div id="errors">
+    <br />
+    <div class="error_message">Must be in the following format:</div>
+    <div class="error_message format">
+      &gt;&lt;sequence ID&gt; &lt;description&gt;
+    </div>
+    <div class="error_message format">&lt;sequence&gt;</div>
+    <div class="error_message">Where:</div>
+    <ul>
+      <li class="error_message format">
+        Sequence ID contains &gt;0 characters in the set (a-z,A-Z,0-9,.,:,*,#)
+        followed by one space
+      </li>
+      <li class="error_message format">
+        Description contains >0 non-whitespace characters with at most one space
+        between characters, followed by an optional carriage return and exactly
+        one newline
+      </li>
+      <li class="error_message format">
+        Sequence contains &gt;0 characters in the set
+        (A,C,G,T,U,R,Y,K,M,S,W,B,D,H,V,N,-, \t, \n, \r), with at most one newline
+        between characters
+      </li>
+    </ul>
+    <div class="error_message">Example:</div>
+    <div class="error_message format">
+      >NC_003909_BCE_5738 NC_003909.8 Bacillus cereus ATCC 10987, complete
+      genome.<br />
+      GATGAACGCTGGCGGCGTGCCTAATACATGCAAGTCGAGCGAATGGATTAAGAGCTTGCT<br />
+      CTTATGAAGTTAGCGGCGGACGGGTGAGTAACACGTGGGTAACCTGCCCATAAGACTGGG<br />
+      ATAACTCCGGGAAACCGGGGCTAATACCGGATAACATTTTGAACCGCATGGTTCGAAATT<br />
+      GAAAGGCGGCTTCGGCTGTCACTTATGGATGGACCCGCGTCGCATTAGCTAGTTGGTGAG<br />
+      GTAACGGCTCACCAAGGCAACGATGCGTAGCCGACCTGAGAGGGTGATCGGCCACACTGG<br />
+      GACTGAGACACGGCCCAGACCAGA
+    </div>
+  </div>
+  {% endif %}
+</form>

@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.table {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.form-group {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.btn {
+    margin-top: 5px;
+}
+
+div#loading {
+    display: none;
+}
+
+.error_message {
+    color: red;
+}
+
+.format {
+    margin-left: 20px;
+}
+
+.hit-title {
+    width: 40%;
+}
